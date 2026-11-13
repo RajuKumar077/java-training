@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AddNewPayeePage;
-import pages.OnlineBookingPage;
 import pages.PayBillPage;
 import utils.Base;
 
@@ -14,13 +13,12 @@ public class PayBillStepDefinition {
 	WebDriver driver = Base.driver; // Accessing WebDriver from Base class
 	PayBillPage payBillPage;
 	AddNewPayeePage addNewPayeePage;
-	OnlineBookingPage onlinebooking;
 
 	@When("user clicks on pay bill")
 	public void user_clicks_on_pay_bill() {
-		onlinebooking = new OnlineBookingPage(driver);
-		boolean actResult = onlinebooking.Paybills();
-		Assert.assertTrue(actResult);
+		payBillPage = new PayBillPage(driver);
+		boolean actResult = payBillPage.validatePayBillURL();
+		Assert.assertTrue("Login page URL validation failed", actResult);
 	}
 
 	@When("user selects payee and select account and enters the {string} to transfer then selects date")

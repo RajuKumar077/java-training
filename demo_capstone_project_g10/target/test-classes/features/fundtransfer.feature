@@ -2,7 +2,7 @@ Feature: Zero Bank Fund Transfer
 
   Scenario Outline: Fund Transfered successfully
     Given user is on login page
-    When user enters login credentials "<username>" and "<password>" and click sign-in
+    When user enters login credentials "<username>" and "<password>" and click sign-in button
     And user clicks on online banking
     And user clicks on transfer fund
     And selects from-account and to-account and enters the "<amount>" to transfer then clicks continue
@@ -11,11 +11,11 @@ Feature: Zero Bank Fund Transfer
 
     Examples:
       | username | password | amount |
-      | username | password |  200 |
+      | username | password |   2342 |
 
   Scenario Outline: Fund Transfered failure
     Given user is on login page
-    When user enters login credentials "<username>" and "<password>" and click sign-in
+    When user enters login credentials "<username>" and "<password>" and click sign-in button
     And user clicks on online banking
     And user clicks on transfer fund
     And selects from-account and to-account and enters the "<amount>" to transfer then clicks continue

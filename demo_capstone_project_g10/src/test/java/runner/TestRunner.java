@@ -6,7 +6,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "src/test/resources/features/login.feature", // Path to your feature files
+    features = "src/test/resources/features/paybill.feature", // Path to your feature files
     glue = "stepdefinitions", // Package where step definitions are located
     plugin = {"pretty", "html:target/cucumber-reports.html"}, // Generates reports
     monochrome = true // Makes console output readable

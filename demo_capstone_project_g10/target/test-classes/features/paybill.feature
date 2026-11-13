@@ -1,8 +1,8 @@
 Feature: Zero Bank Pay Bill
 
-  Scenario Outline: Pay Bill is successfull
+  Scenario Outline: Pay Bill successfull
     Given user is on login page
-    When user enters login credentials "<username>" and "<password>" and click sign-in
+    When user enters login credentials "<username>" and "<password>" and click sign-in button
     And user clicks on online banking
     And user clicks on pay bill
     And user selects payee and select account and enters the "<amount>" to transfer then selects date
@@ -13,9 +13,9 @@ Feature: Zero Bank Pay Bill
       | username | password | amount |
       | username | password |   2342 |
 
-  Scenario Outline: Pay Bill is Failure
+  Scenario Outline: Pay Bill Without Entering the Amount
     Given user is on login page
-    When user enters login credentials "<username>" and "<password>" and click sign-in
+    When user enters login credentials "<username>" and "<password>" and click sign-in button
     And user clicks on online banking
     And user clicks on pay bill
     And user selects payee and select account and enters the "<amount>" to transfer then selects date
@@ -28,7 +28,7 @@ Feature: Zero Bank Pay Bill
 
   Scenario Outline: Add a New Payee Module with Valid Credentials
     Given user is on login page
-    When user enters login credentials "<username>" and "<password>" and click sign-in
+    When user enters login credentials "<username>" and "<password>" and click sign-in button
     And user clicks on online banking
     And user clicks on pay bill
     And user clicks on Add New Payee
@@ -39,9 +39,9 @@ Feature: Zero Bank Pay Bill
       | username | password | account | payeename | payeeaddress |
       | username | password |    2342 | raju      | bhore        |
 
-  Scenario Outline: Add a New Payee Module is Failure
+  Scenario Outline: Add a New Payee Module with empty Credentials
     Given user is on login page
-    When user enters login credentials "<username>" and "<password>" and click sign-in
+    When user enters login credentials "<username>" and "<password>" and click sign-in button
     And user clicks on online banking
     And user clicks on pay bill
     And user clicks on Add New Payee

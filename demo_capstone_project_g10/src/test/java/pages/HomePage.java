@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import objectrepository.Locators;
 
 public class HomePage {
-	private WebDriver driver; // WebDriver instance 
-	private WebDriverWait wait; // WebDriverWait instance for waits
+	private WebDriver driver; // WebDriver instance for interacting with the browser
+	private WebDriverWait wait; // WebDriverWait instance for explicit waits
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -22,9 +22,8 @@ public class HomePage {
 
 	public boolean validatePage() {
 		String Home_Page = driver.findElement(Locators.Home).getText();
-		System.out.println(Home_Page);
 		boolean actResult;
-		if (Home_Page.equals("HOME")) {
+		if (Home_Page.equals("Home")) {
 			actResult = true;
 
 		} else {

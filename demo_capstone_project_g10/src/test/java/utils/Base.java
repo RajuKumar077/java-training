@@ -1,13 +1,16 @@
 package utils;
 
+import java.time.Duration;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Base {
     public static WebDriver driver; // Made static so it can be accessed in Hooks
+    public static WebDriverWait wait; // Global WebDriverWait instance
 
     public static WebDriver launchBrowser() {
         // Read properties from the configuration file
@@ -39,6 +42,10 @@ public class Base {
         driver.manage().window().maximize();
         // Navigate to the URL specified in the properties file
         driver.get(prop.getProperty("URL"));
+
+        // Initialize global WebDriverWait with a default timeout of 10 seconds
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         return driver;
     }
 
